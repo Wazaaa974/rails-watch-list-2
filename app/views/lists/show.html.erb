@@ -1,0 +1,23 @@
+<div class="container">
+
+<h1> <%= @list.name %> </h1>
+
+
+<%@list.movies.each do |movie| %>
+<%= movie.title %>
+<%= link_to "Delete this movie",bookmark_path(movie.bookmark_ids),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+<% end %>
+
+
+
+
+<%= link_to "Delete this list",list_path(@list),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+<%= link_to "Add a movie", new_list_bookmark_path(@list)
+%>
+
+
+</div>
